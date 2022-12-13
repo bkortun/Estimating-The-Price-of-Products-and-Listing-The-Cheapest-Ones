@@ -62,10 +62,8 @@ for r in r_list:
 
         
 
-baseUrl="https://www.carrefoursa.com/"
+baseUrl="https://www.carrefoursa.com"
 r_list=[]
-
-r=requests.get("https://www.carrefoursa.com/search/?text=domates")
 
 r_domates=requests.get("https://www.carrefoursa.com/search/?text=domates")
 r_salatalik=requests.get("https://www.carrefoursa.com/search/?text=salatal%C4%B1k")
@@ -106,7 +104,44 @@ for r in r_list:
                    productPrice.append(essantial[0]) 
                productLink.append(baseUrl+product_href)
                marketName.append("Carrefoursa")
+               
 
+               
+baseUrl="https://tahtakalespot.com"
+r_list=[]
+
+r_domates=requests.get("https://tahtakalespot.com/search/mevsiminden%20domates/5991f7c3-7305-4717-9c26-bcf5fbc8e491")
+r_salatalik=requests.get("https://tahtakalespot.com/search/mevsiminden%20salatal%C4%B1k/d80f3186-fea0-418b-b12b-292078a4e7a7")
+r_peynir=requests.get("https://tahtakalespot.com/search/S%C3%BCta%C5%9F%20S%C3%BCzme%20Beyaz%20Peynir%201000gr/5bd4dcea-5e06-4b38-9a24-3a4cd88ab2d9")
+r_zeytin=requests.get("https://tahtakalespot.com/search/Mevsiminden%20Kuru%20Sele%20Zeytin%20%28kg%29%28291-320%29/676b5370-cea6-4658-a97f-36627475e1b2")
+r_sucuk=requests.get("https://tahtakalespot.com/search/%C4%B0kbal%20Dana%20Kangal%20Sucuk%20200gr/b1ce7f0b-3e83-41e0-b595-f77005850668")
+r_mayonez=requests.get("https://tahtakalespot.com/search/mayonez/dbabc6f5-b1a5-4724-aa31-296825522067")
+r_camasir=requests.get("https://tahtakalespot.com/search/Bingo%20S%C4%B1v%C4%B1%20%C3%87ama%C5%9F%C4%B1r%20Renki%20Beyaz%202145Ml%2033%20Y%C4%B1kama/9a40d861-0cea-4c5d-9955-f8c181be66fb")
+r_yag=requests.get("https://tahtakalespot.com/search/Oru%C3%A7o%C4%9Flu%20Ay%C3%A7i%C3%A7ek%20Ya%C4%9F%C4%B1%201lt%20Pet/5a239557-911f-4cef-8211-fecfcaa68ddf")
+r_kakao=requests.get("https://tahtakalespot.com/search/SARELLE%20KAKAOLU%20FINDIK%20KREMASI%20350gr/707a60f0-eede-4013-b662-6af743af36dd")
+r_bulasik=requests.get("https://tahtakalespot.com/search/bula%C5%9F%C4%B1k%20deterjan%C4%B1/e260680d-a246-432e-b443-1f1174aa4ca2")
+
+r_list.append(r_domates)
+r_list.append(r_salatalik)
+r_list.append(r_peynir)
+r_list.append(r_zeytin)
+r_list.append(r_sucuk)
+r_list.append(r_mayonez)
+r_list.append(r_camasir)
+r_list.append(r_yag)
+r_list.append(r_kakao)
+r_list.append(r_bulasik)
+             
+for r in r_list:
+    soup=BeautifulSoup(r.content,"html.parser")
+    product=soup.find("div",{"class":"product bordered"})
+    product_href=product.find('a')['href']
+    product_list=[x.get_text().split("\n") for x in product]
+    productName.append(product_list[4][0]) 
+    productPrice.append(product_list[7][0].split()[0]) 
+    productLink.append(baseUrl+product_href)
+    marketName.append("Tahtakale")
+              
         
 #Table Writing Process
 product_dict={"Name":productName,"Price":productPrice,"Time":timeNow,"Link":productLink,"MarketName":marketName}
