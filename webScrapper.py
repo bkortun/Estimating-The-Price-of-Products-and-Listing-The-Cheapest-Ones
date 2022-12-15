@@ -49,14 +49,14 @@ for r in r_list:
     product=soup.find("article",{"class":"product-card"})
     product_href=product.find('a')['href']
     product_list=[x.get_text().split("\n") for x in product]
-
     for product in product_list:
-        if(len(product)==19):
+        if(product==product_list[1]):
             productName.append(product[5].strip()) 
             essantial=product[10].split("₺")
             productPrice.append(essantial[1]) 
             productLink.append(baseUrl+product_href)
             marketName.append("A-101")
+    product_list=[]
 
 
 
