@@ -5,13 +5,8 @@ Created on Thu Dec 15 11:55:09 2022
 @author: TULPAR
 """
 
-"""
-veri çekme tuşu eklenecek
-alert eklenecek  yapıldı
-json dosya üzerine kaydetme yapılacak yapıldı
-bulunulan ayın ürünleri getirilicek 
-web sayfassına yönlendirme yapılacak  silindi
-"""
+""
+
 
 from tkinter import *
 from tkinter import ttk 
@@ -20,12 +15,17 @@ import pandas as pd
 import numpy as np
 import json
 import random
+import os
+import datetime
 
 
+timeNow = datetime.datetime.now()
 
-fileObject = open("12_2022.json", "r")
+fileObject = open(format(timeNow.month)+"_"+format(timeNow.year)+'.json', "r")
 jsonContent = fileObject.read()
 dataList = json.loads(jsonContent)
+
+
 
 productNames=dataList["Name"]
 productPrices=dataList["Price"]
@@ -183,7 +183,12 @@ for i in range(1,4):
     
     temp=rnd
     
+    
+webScrapping_button=Button(master,text="Web Scrapping",font="Verdana 12 bold",command=lambda :onClick(os.system('python webScrapper.py')))
+webScrapping_button.place(relx=0.05,rely=0.88,relwidth=0.15,relheight=0.1)
 
+parameters_button=Button(master,text="Parameters",font="Verdana 12 bold",command=lambda :onClick(os.system('python parameters.py')))
+parameters_button.place(relx=0.25,rely=0.88,relwidth=0.15,relheight=0.1)
 
 master.mainloop()
 
