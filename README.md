@@ -13,6 +13,12 @@ How to run our project?
 2)İn order to use app,İnstall requirement libraries(Tkinter,BeautifulSoup)
 
 
+For any Information:
+kaanarabaci35@gmail.com
+
+
+
+
 
 
 
