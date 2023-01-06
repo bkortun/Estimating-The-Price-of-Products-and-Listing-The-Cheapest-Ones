@@ -13,6 +13,7 @@ How to run our project?
 2)İn order to use app,İnstall requirement libraries(Tkinter,BeautifulSoup)
 
 Beautifulsoup installation:https://www.geeksforgeeks.org/beautifulsoup-installation-python/
+
 Tkinter installation:https://www.tutorialspoint.com/how-to-install-tkinter-in-python
 
 For any Information:
