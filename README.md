@@ -8,5 +8,14 @@ We used beautifulsoup to get the product data(name,present price,link,name of th
 We get the selected product data from different web sites and save them into a json file.Similarly we get the parametres'(USD/TRY,EUR/TRY,BRENT PETROL,BİST 100,EUR/USD,
 INTEREST RATE of Turkey,GOLD ONS) name value and the time we got and save them into a json file.
 
+How to run our project?
+1)Create a clone in your computer via github desktop and run with an ide
+2)İn order to use app,İnstall requirement libraries(Tkinter,BeautifulSoup)
+
+
+
+
+
+
 
 
