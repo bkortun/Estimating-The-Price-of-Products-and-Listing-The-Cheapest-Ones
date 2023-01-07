@@ -41,12 +41,12 @@ dictionary={
     }
 
 parameters_df=pd.DataFrame(dictionary)
-parameters_df.to_json(r'C:/Users/TULPAR/OneDrive/Masaüstü/WebScraping/'+format(timeNow.month)+"_"+format(timeNow.year)+'parameters.json')
+parameters_df.to_json(r''+format(timeNow.month)+"_"+format(timeNow.year)+'parameters.json')
 
 if os.path.exists("parameters.json"):
     data_df=pd.read_json("parameters.json")
     product_df=pd.concat([data_df,parameters_df],axis=0)
     product_df.reset_index(drop=True,inplace=True)
 
-data_df.to_json(r'C:/Users/TULPAR/OneDrive/Masaüstü/WebScraping/parameters.json')
+data_df.to_json(r'parameters.json')
 

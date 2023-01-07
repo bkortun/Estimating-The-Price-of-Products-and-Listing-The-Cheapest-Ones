@@ -147,14 +147,14 @@ for r in r_list:
 #Table Writing Process
 product_dict={"Name":productName,"Price":productPrice,"Time":timeNow,"Link":productLink,"MarketName":marketName}
 product_df=pd.DataFrame(product_dict)
-product_df.to_json(r'C:/Users/TULPAR/OneDrive/Masaüstü/WebScraping/'+format(timeNow.month)+"_"+format(timeNow.year)+'.json')
+product_df.to_json(r''+format(timeNow.month)+"_"+format(timeNow.year)+'.json')
 
 if os.path.exists("data.json"):
     data_df=pd.read_json("data.json")
     product_df=pd.concat([data_df,product_df],axis=0)
     product_df.reset_index(drop=True,inplace=True)
 
-product_df.to_json(r'C:/Users/TULPAR/OneDrive/Masaüstü/WebScraping/data.json')
+product_df.to_json(r'data.json')
 
 
 
