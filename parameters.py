@@ -45,8 +45,8 @@ parameters_df.to_json(r''+format(timeNow.month)+"_"+format(timeNow.year)+'parame
 
 if os.path.exists("parameters.json"):
     data_df=pd.read_json("parameters.json")
-    product_df=pd.concat([data_df,parameters_df],axis=0)
-    product_df.reset_index(drop=True,inplace=True)
+    parameters_df=pd.concat([data_df,parameters_df],axis=0)
+    parameters_df.reset_index(drop=True,inplace=True)
 
-data_df.to_json(r'parameters.json')
+parameters_df.to_json(r'parameters.json')
 

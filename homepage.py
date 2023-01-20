@@ -21,7 +21,11 @@ import datetime
 
 timeNow = datetime.datetime.now()
 
-fileObject = open(format(timeNow.month)+"_"+format(timeNow.year)+'.json', "r")
+if os.path.exists(format(timeNow.month)+"_"+format(timeNow.year)+'.json')==False:
+        os.system('python webScrapper.py')
+        os.system('python parameters.py')
+
+fileObject = open(format(timeNow.month)+"_"+format(timeNow.year)+'.json', "r")        
 jsonContent = fileObject.read()
 dataList = json.loads(jsonContent)
 
@@ -195,10 +199,10 @@ for i in range(1,4):
     temp=rnd
     
     
-webScrapping_button=Button(master,text="Web Scrapping",font="Verdana 12 bold",command=lambda :onClick(os.system('python webScrapper.py')))
+webScrapping_button=Button(master,text="Web Scrapping",font="Verdana 12 bold",command=lambda :os.system('python webScrapper.py'))
 webScrapping_button.place(relx=0.05,rely=0.88,relwidth=0.15,relheight=0.1)
 
-parameters_button=Button(master,text="Parameters",font="Verdana 12 bold",command=lambda :onClick(os.system('python parameters.py')))
+parameters_button=Button(master,text="Parameters",font="Verdana 12 bold",command=lambda :os.system('python parameters.py'))
 parameters_button.place(relx=0.25,rely=0.88,relwidth=0.15,relheight=0.1)
 
 master.mainloop()
