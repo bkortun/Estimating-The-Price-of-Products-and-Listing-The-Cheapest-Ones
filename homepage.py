@@ -113,7 +113,7 @@ def onSearch(input):
                 marketName_label=Label(product_frame,text=dataList["MarketName"][str(sortedUtils[i-1])],font="Verdana 12 bold",bg="#D2C0BC")
                 marketName_label.place(relx=0.79,rely=0.17,relwidth=0.18,relheight=0.58)
                 
-                seeDetails_button=Button(product_frame,text="See Details",font="Verdana 12 bold",command=lambda i=i:onClick(str(products[i-1])))
+                seeDetails_button=Button(product_frame,text="See Details",font="Verdana 12 bold",command=lambda i=i:onClick(str(sortedUtils[i-1])))
                 seeDetails_button.place(relx=0.01,rely=0.17,relwidth=0.18,relheight=0.63)
             input=""
             index=0
